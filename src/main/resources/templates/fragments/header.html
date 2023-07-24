@@ -1,0 +1,49 @@
+<div th:fragment="header">
+  <nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
+      </ul>
+      <div sec:authorize="isAnonymous()">
+        <ul class="nav">
+          <li class="nav-item"><a th:href="@{/login}" class="nav-link link-body-emphasis px-2">Login</a></li>
+          <li class="nav-item"><a th:href="@{/register}" class="nav-link link-body-emphasis px-2">Sign up</a></li>
+        </ul>
+      </div>
+      <div sec:authorize="isAuthenticated()">
+        <ul class="nav">
+          <li class="nav-item"><a th:href="@{/logout}" class="nav-link link-body-emphasis px-2">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--<nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container d-flex flex-wrap align-items-center">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a href="/home" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/aboutUs" class="nav-link link-body-emphasis px-2">About us</a></li>
+        <li class="nav-item"><a href="/contacts" class="nav-link link-body-emphasis px-2">Contacts</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link link-body-emphasis px-2">Profile</a></li>
+        <li class="nav-item"><a href="/profile" class="nav-link link-body-emphasis px-2">Profile</a></li>
+      </ul>
+      <ul class="nav">
+
+        &lt;!&ndash;<li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"
+        sec:authentication="principal.getFullName"></a></li>&ndash;&gt;
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2" sec:authentication="principal.balance">Balance: </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+             th:href="@{/account}"
+             sec:authentication="principal.fullName"></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" id="logoutLink" href="">Logout</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Login</a></li>
+        <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">Sign up</a></li>
+      </ul>
+    </div>
+  </nav>-->
+
+</div>
